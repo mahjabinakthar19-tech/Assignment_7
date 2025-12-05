@@ -7,7 +7,9 @@
 //added sizedbox width to keep the design fixed
 //added elevation to make the card look lifted
 //added spacing using sizedbox and column arrangement
- 
+//added a variable to store submitted textString submittedText = "";
+//added submit button
+//added text display area
 
 import 'package:flutter/material.dart';
 
@@ -20,6 +22,9 @@ class NewPage extends StatefulWidget {
 
 class _NewPageState extends State<NewPage> {
   TextEditingController textController = TextEditingController();
+
+  //added a variable to store submitted text
+  String submittedText = "";
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +50,6 @@ class _NewPageState extends State<NewPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // ICON
                   const Icon(
                     Icons.flutter_dash,
                     size: 90,
@@ -54,7 +58,6 @@ class _NewPageState extends State<NewPage> {
 
                   const SizedBox(height: 15),
 
-                  // MAIN TEXT
                   const Text(
                     "This is our new page!",
                     style: TextStyle(
@@ -66,7 +69,6 @@ class _NewPageState extends State<NewPage> {
 
                   const SizedBox(height: 20),
 
-                  // INPUT FIELD (teacher style)
                   TextFormField(
                     controller: textController,
                     keyboardType: TextInputType.text,
@@ -80,9 +82,31 @@ class _NewPageState extends State<NewPage> {
                     ),
                   ),
 
+                  const SizedBox(height: 15),
+
+                  //added submit button
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        submittedText = textController.text;
+                      });
+                    },
+                    child: const Text("Submit"),
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  //added text display area
+                  Text(
+                    submittedText,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                  ),
+
                   const SizedBox(height: 20),
 
-                  // GO BACK BUTTON
                   ElevatedButton(
                     onPressed: () => Navigator.pop(context),
                     style: ElevatedButton.styleFrom(
@@ -107,4 +131,3 @@ class _NewPageState extends State<NewPage> {
     );
   }
 }
-
