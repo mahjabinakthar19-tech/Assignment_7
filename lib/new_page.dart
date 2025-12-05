@@ -1,3 +1,14 @@
+//added statefulwidget for using controller
+//added texteditingcontroller
+//added card to organize the layout
+//added padding inside the card
+//added textformfield for typing input
+//added decoration (label,hint,prefix icon,border) to the text box
+//added sizedbox width to keep the design fixed
+//added elevation to make the card look lifted
+//added spacing using sizedbox and column arrangement
+ 
+
 import 'package:flutter/material.dart';
 
 class NewPage extends StatefulWidget {
